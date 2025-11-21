@@ -6,6 +6,11 @@
 <title>IELTS Writing Task 1 Overview</title>
 <link rel="stylesheet" href="style.css">
 <link rel="icon" sizes="192x192" href="https://img.freepik.com/free-photo/anime-moon-landscape_23-2151645871.jpg?semt=ais_hybrid&w=740&q=80">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0d1117">
+
+<!-- Опционально для iOS -->
+<link rel="apple-touch-icon" href="https://img.freepik.com/free-photo/anime-moon-landscape_23-2151645871.jpg?semt=ais_hybrid&w=740&q=80">
 </head>
 <body>
 <header>
@@ -20,6 +25,14 @@
 </main>
 
 
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+    .then(() => console.log('Service Worker зарегистрирован'))
+    .catch(err => console.log(err));
+  }
+  </script>
+  
 <script src="script.js"></script>
 </body>
 </html>

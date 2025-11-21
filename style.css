@@ -164,3 +164,34 @@ main { flex:1; padding:2rem 1rem; }
   .cards-container { grid-template-columns:1fr; gap:1rem; }
   .card img { width:80px; height:80px; }
 }
+@media (max-width: 780px) {
+  header h1 { font-size: 1.8rem; }
+  header p { font-size: 1rem; }
+  .cards-container { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; padding: 2.5rem 1rem; }
+  .card { max-width: 320px; padding-bottom: 2rem; }
+  .card img { width: 100px; height: 100px; padding: 18px; }
+  .card h2 { font-size: 1.4rem; }
+  .card p.overall { font-size: 1.05rem; padding: 0.9rem 1.2rem; }
+}
+
+/* Адаптив для экранов до 760px */
+@media (max-width: 760px) {
+  header h1 { font-size: 1.7rem; }
+  header p { font-size: 0.95rem; }
+  .cards-container { grid-template-columns: 1fr; gap: 1.8rem; padding: 2rem 1rem; }
+  .card { max-width: 300px; padding-bottom: 1.8rem; }
+  .card img { width: 95px; height: 95px; padding: 15px; }
+  .card h2 { font-size: 1.35rem; }
+  .card p.overall { font-size: 1rem; padding: 0.8rem 1rem; }
+}
+
+/* Адаптив для экранов до 680px */
+@media (max-width: 680px) {
+  header h1 { font-size: 1.6rem; }
+  header p { font-size: 0.9rem; }
+  .cards-container { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.8rem 1rem; }
+  .card { max-width: 280px; padding-bottom: 1.5rem; }
+  .card img { width: 90px; height: 90px; padding: 12px; }
+  .card h2 { font-size: 1.3rem; }
+  .card p.overall { font-size: 0.95rem; padding: 0.7rem 0.9rem; }
+}
