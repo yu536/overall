@@ -160,10 +160,30 @@ main { flex:1; padding:2rem 1rem; }
 
 @keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
 
-@media (max-width:480px) {
-  .cards-container { grid-template-columns:1fr; gap:1rem; }
-  .card img { width:80px; height:80px; }
+/* Для экранов до 480px (малые телефоны) */
+@media (max-width: 480px) {
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* центрируем вертикально */
+    align-items: center;     /* центрируем горизонтально */
+    gap: 1.2rem;
+    padding: 1.5rem 1rem;
+    min-height: 80vh;        /* контейнер почти на весь экран */
+  }
+
+  .card {
+    width: 90%;              /* почти весь экран */
+    max-width: 300px;        /* ограничиваем максимальную ширину */
+    min-height: 50vh;        /* минимальная высота карточки */
+    padding: 1.5rem;
+  }
+
+  .card img { width: 70px; height: 70px; padding: 12px; }
+  .card h2 { font-size: 1.2rem; }
+  .card p.overall { font-size: 0.95rem; padding: 0.7rem 1rem; }
 }
+
 @media (max-width: 780px) {
   header h1 { font-size: 1.8rem; }
   header p { font-size: 1rem; }
@@ -176,12 +196,25 @@ main { flex:1; padding:2rem 1rem; }
 
 /* Адаптив для экранов до 760px */
 @media (max-width: 760px) {
-  header h1 { font-size: 1.7rem; }
-  header p { font-size: 0.95rem; }
-  .cards-container { grid-template-columns: 1fr; gap: 1.8rem; padding: 2rem 1rem; }
-  .card { max-width: 300px; padding-bottom: 1.8rem; }
-  .card img { width: 95px; height: 95px; padding: 15px; }
-  .card h2 { font-size: 1.35rem; }
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    min-height: 75vh;
+  }
+
+  .card {
+    width: 92%;
+    max-width: 340px;
+    min-height: 55vh;
+    padding: 1.8rem;
+  }
+
+  .card img { width: 90px; height: 90px; padding: 15px; }
+  .card h2 { font-size: 1.3rem; }
   .card p.overall { font-size: 1rem; padding: 0.8rem 1rem; }
 }
 
