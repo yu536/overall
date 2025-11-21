@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* { box-sizing: border-box; margin:0; padding:0; }
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #0e0f14;
+  color:#333;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: #0d1117; /* тёмный фон */
+    color: #00f0ff; /* базовый цвет текста */
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.5), 
+                0 0 40px rgba(0, 240, 255, 0.3), 
+                0 0 60px rgba(0, 240, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Анимация мерцания неона */
+  header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(0,240,255,0.3), transparent 70%);
+    animation: neonGlow 3s infinite alternate;
+    pointer-events: none;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00f0ff;
+    text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 20px #00cfff, 0 0 30px #00cfff;
+    transition: all 0.3s ease;
+  }
+  
+  header p {
+    margin-top: 0.5rem;
+    font-weight: 400;
+    color: #8ef0ff;
+    text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff;
+  }
+  
+  /* Анимация свечения */
+  @keyframes neonGlow {
+    0% { transform: rotate(0deg) scale(1); opacity: 0.3; }
+    50% { transform: rotate(45deg) scale(1.1); opacity: 0.5; }
+    100% { transform: rotate(90deg) scale(1); opacity: 0.3; }
+  }
+  
+  /* Ховер для усиления эффекта */
+  header:hover h1 {
+    text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 40px #00cfff, 0 0 60px #00cfff;
+  }
+  
+
+main { flex:1; padding:2rem 1rem; }
+
+.cards-container {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  justify-items: center;
+  padding: 3rem;
+  background: #0e0f14;
+}
+
+.card {
+  background: linear-gradient(145deg, #1a1b22, #16171e);
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255,127,80,0.2), 0 10px 30px rgba(0,0,0,0.3);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  width: 100%;
+  max-width: 350px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  opacity:0;
+  transform: translateY(50px);
+  animation: fadeInUp 0.7s forwards;
+  cursor:pointer;
+  padding-bottom: 2.5rem;
+  position: relative;
+}
+
+/* Эффект неоновых боков */
+.card::before, .card::after {
+  content:'';
+  position:absolute;
+  width:5px;
+  height:100%;
+  top:0;
+  border-radius:5px;
+  background: linear-gradient(180deg,#ff7f50,#ff0080,#7f00ff);
+  filter: blur(8px);
+  opacity:0.6;
+  transition: all 0.3s ease;
+}
+.card::before { left:0; }
+.card::after { right:0; }
+.card:hover::before, .card:hover::after { opacity:1; transform: scaleY(1.1); }
+
+.card:hover { transform: translateY(-15px) scale(1.05); box-shadow: 0 0 40px rgba(255,127,80,0.4), 0 20px 60px rgba(0,0,0,0.5); }
+
+.card img {
+  width:120px;
+  height:120px;
+  margin-top:2rem;
+  border-radius:50%;
+  background: linear-gradient(135deg, #4A90E2, #0077B6);
+  padding: 20px;
+  object-fit: contain;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  box-shadow: 0 0 15px rgba(74,144,226,0.6);
+}
+.card:hover img { transform: rotate(10deg) scale(1.1); box-shadow:0 0 25px rgba(74,144,226,0.8); }
+
+.card h2 {
+  margin:1rem 1rem 0.5rem;
+  font-size:1.5rem;
+  font-weight:700;
+  color:#ff7f50;
+  text-shadow:0 0 5px #ff7f50, 0 0 10px #ff7f50, 0 0 20px #ff0080;
+  line-height:1.3;
+  transition: all 0.3s ease;
+}
+.card:hover h2 { color:#ff8a60; text-shadow:0 0 10px #ff7f50, 0 0 20px #ff0080, 0 0 30px #7f00ff; }
+
+.card p.overall {
+  font-size:1rem;
+  color:#ccc;
+  margin:0.5rem 1.5rem 1.5rem;
+  line-height:1.5;
+  text-shadow:0 0 2px rgba(255,255,255,0.2);
+  background: linear-gradient(135deg,#FF7F50,#FF0080,#7F00FF);
+  color:white;
+  padding:1rem 1.5rem;
+  border-radius:20px;
+  font-weight:700;
+  font-size:1.1rem;
+  line-height:1.4;
+  box-shadow:0 0 15px rgba(255,127,80,0.5);
+  text-shadow:0 0 5px rgba(255,255,255,0.3);
+  transition: all 0.4s ease;
+}
+.card:hover p.overall { transform: translateY(-5px) scale(1.08); box-shadow:0 0 25px rgba(255,127,80,0.8), 0 0 40px rgba(255,0,128,0.6); }
+
+@keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
+
+@media (max-width:480px) {
+  .cards-container { grid-template-columns:1fr; gap:1rem; }
+  .card img { width:80px; height:80px; }
+}
